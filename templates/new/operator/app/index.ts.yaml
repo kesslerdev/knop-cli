@@ -5,6 +5,7 @@ import { OperatorBroker } from "knop";
 
 const broker = new OperatorBroker("<%= name %>");
 
+broker.loadCRDs(__dirname + '/api/**/**.api.{ts,js}');
 broker.loadControllers(__dirname + '/controllers/**/**.controller.{ts,js}');
 
 const exit = (reason: string) => {

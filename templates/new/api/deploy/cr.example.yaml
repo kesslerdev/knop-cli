@@ -1,0 +1,10 @@
+---
+to: deploy/crds/<%= crdExamplePath %>.yaml
+---
+apiVersion: <%= apiVersion %>
+kind: <%= kind %>
+metadata:
+  name: example-<%= kind.toLowerCase() %>
+spec:
+  # Add fields here
+  size: 3
