@@ -6,10 +6,11 @@ const params = ({ args }) => {
   return {
     packageName,
     orgName: args.org || inflection.titleize(args.name),
+    org: args.org || false,
     repo:
       args.repo ||
       "https://https://outils.docapost.tech/gitlab/docaposte/kubernetes/operators/" +
-        packageName,
+        packageName + ".git",
     dockerRepo:
       args.dockerRepo || "docker.docapost.tech/docaposte/" + packageName
   };

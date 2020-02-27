@@ -1,0 +1,33 @@
+---
+to: <%= packageName %>/deploy/operator.yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: <%= packageName %>
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: <%= packageName %>
+  template:
+    metadata:
+      labels:
+        name: <%= packageName %>
+    spec:
+      serviceAccountName: <%= packageName %>
+      containers:
+        - name: <%= packageName %>
+          image: <%= dockerRepo %>:latest
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "<%= packageName %>"
