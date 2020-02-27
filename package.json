@@ -1,0 +1,14 @@
+{
+  "name": "knop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "knop": "./index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "hygen": "^5.0.3"
+  }
+}

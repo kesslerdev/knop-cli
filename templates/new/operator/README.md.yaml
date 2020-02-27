@@ -1,0 +1,11 @@
+---
+unless_exists: true
+to: <%= packageName %>/README.md
+---
+# <%= Name %>
+
+## Build
+
+```bash
+npm run dk:build
+```
