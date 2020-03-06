@@ -16,21 +16,19 @@ export default class <%= kind %>Controller extends CRDController {
 
   protected async handleCreation(object: <%= kind %>): Promise<<%= kind %>Status> {
     this.logger.info("CREATE");
-    this.logger.info(object);
 
-    return {};
+    return { size: object.spec.size };
   }
 
-  protected async handleModification(object: <%= kind %>): Promise<<%= kind %>Status> {
+  protected async handleModification(object: Elasticsearch, diff: DiffResult): Promise<ElasticsearchStatus> {
     this.logger.info("UPDATE");
-    this.logger.info(object);
+    this.logger.info(diff);
 
-    return {};
+    return { size: object.spec.size };
   }
 
   protected async handleDeletion(object: <%= kind %>): Promise<boolean> {
     this.logger.info("DELETE");
-    this.logger.info(object);
 
     return true;
   }

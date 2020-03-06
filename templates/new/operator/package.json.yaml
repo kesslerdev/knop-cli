@@ -38,7 +38,7 @@ sh: "cd <%= cwd %>/<%= packageName %> && npm install"
   },
   "dependencies": {
     "tslib": "^1.11.0",
-    "knop": "../../knop",
-    "yaml": "^1.7.2"
+    "handlebars": "^4.7.3",
+    "knop": "../../knop"
   }
 }
